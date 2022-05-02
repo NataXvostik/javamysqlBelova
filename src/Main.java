@@ -13,7 +13,6 @@ public class Main {
         for (Student student : students) {
             System.out.println(student.getFio());
         }
-
 //        List<Student> curators = new CuratorTable("mysql").list();
 //
 //        for (Student curator : curators) {
