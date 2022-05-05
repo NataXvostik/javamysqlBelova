@@ -30,9 +30,9 @@ public class StudentGroupTable extends TableAbs<StudentGroup> {
         String joins = DbUtils.getJoins(joinPredicates);
 
         if (predicate.isEmpty()) {
-            query = String.format("SELECT * FROM %s %s", Student.tableName, joins);
+            query = String.format("SELECT * FROM %s %s", StudentGroup.tableName, joins);
         } else {
-            query = String.format("SELECT * FROM %s %s WHERE %s ", Student.tableName, joins, query);
+            query = String.format("SELECT * FROM %s %s WHERE %s ", StudentGroup.tableName, joins, query);
         }
 
         ResultSet resultSet = this.dbExecutor.execute(query);
