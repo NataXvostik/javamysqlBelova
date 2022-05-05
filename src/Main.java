@@ -1,6 +1,8 @@
 import dbo.Student;
 //import tables.CuratorTable;
+import dbo.StudentGroup;
 import tables.CuratorTable;
+import tables.StudentGroupTable;
 import tables.StudentTable;
 
 import java.util.ArrayList;
@@ -11,9 +13,10 @@ import java.util.Map;
 public class Main {
 
     public static void main(String... args) {
-        showStudentsWithCurators();
-        showStudentsWomen();
-        countStudents();
+//        showStudentsWithCurators();
+//        showStudentsWomen();
+//        countStudents();
+        update();
     }
 
     public static void showStudentsWomen() {
@@ -70,9 +73,10 @@ public class Main {
     public static void update(){
         System.out.print("Update:\n");
         String fieldName = "id_curator";
-        String value = "2";
+        int value = 1;
         List<String> where = new ArrayList<>();
-        where.add("id_curator = '1'");
-        new CuratorTable("mysql").update(fieldName, value, where);
+        where.add("name = 'Group1'");
+        new StudentGroupTable("mysql").update(fieldName, value, where);
+        System.out.println("Success!");
     }
 }
