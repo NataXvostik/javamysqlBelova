@@ -13,12 +13,13 @@ import java.util.Map;
 public class Main {
 
     public static void main(String... args) {
-//        showStudentsWithCurators();
-//        showStudentsWomen();
-//        countStudents();
+        showStudentsWithCurators();
+        showStudentsWomen();
+        countStudents();
         update();
     }
 
+    //Показать студенток
     public static void showStudentsWomen() {
         System.out.print("Girls:\n");
         Map<String, String> joins = new HashMap<>();
@@ -26,7 +27,7 @@ public class Main {
         joins.put("Curator", "curator.id = student_group.id_curator");
 
         List<String> where = new ArrayList<>();
-//        where.add("sex = ''");
+        where.add("sex = 'женский'");
 
         List<Student> students = new StudentTable("mysql").list(where, joins);
         for (Student student : students) {
@@ -41,6 +42,7 @@ public class Main {
         System.out.println();
     }
 
+    //Показать студентов с кураторами
     public static void showStudentsWithCurators() {
         System.out.print("Students with curators:\n");
         Map<String, String> joins = new HashMap<>();
@@ -48,7 +50,6 @@ public class Main {
         joins.put("Curator", "curator.id = student_group.id_curator");
 
         List<String> where = new ArrayList<>();
-//        where.add("sex = ''");
 
         List<Student> students = new StudentTable("mysql").list(where, joins);
         for (Student student : students) {
@@ -62,6 +63,7 @@ public class Main {
         System.out.println();
     }
 
+    //Посчитать количество студентов
     public static void countStudents() {
         System.out.print("Count of students:\n");
         int studentsCount = new StudentTable("mysql").count();
@@ -70,7 +72,7 @@ public class Main {
     }
 
     //Обновить данные по группе сменив куратора
-    public static void update(){
+    public static void update() {
         System.out.print("Update:\n");
         String fieldName = "id_curator";
         int value = 1;
