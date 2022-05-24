@@ -39,15 +39,6 @@ public abstract class TableAbs<T> implements Itable<T> {
 
     protected abstract String getTableName();
 
-    public void update(String fieldName, String value, List<String> predicate) {
-        dbExecutor.execute(String.format("UPDATE %s SET %s = \"%s\" WHERE %s",
-                getTableName(),
-                fieldName,
-                value,
-                DbUtils.getPredicate(predicate)
-        ));
-    }
-
     public void update(String fieldName, int value, List<String> predicate) {
         dbExecutor.update(String.format("UPDATE %s SET %s = %d WHERE %s",
                 getTableName(),
